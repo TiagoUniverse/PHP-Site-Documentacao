@@ -7,6 +7,10 @@
 
 ## ➡️Introdução
 Este projeto visa criar um template de website de documentação do PHP, dividindo os assuntos em tópicos e sessões e possuindo uma barra de navegação.
+
+![index](https://github.com/TiagoUniverse/PHP-Site-Documentacao/assets/71237410/f2bba58b-50fe-4cf8-9c45-7c73391247f3)
+
+
 ---
 
 
