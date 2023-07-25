@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Techinal Documentation Page</title>
+</head>
+
+<body>
+  <nav id="navbar">
+    <header>Documentação de PHP</header>
+    <a class="nav-link" href="#introducao">introducao</a>
+    <a class="nav-link" href="#instalacao">instalacao</a>
+    <a class="nav-link" href="#caracteristicas_do_php">caracteristicas do php</a>
+    <a class="nav-link" href="#seguranca">seguranca</a>
+    <a class="nav-link" href="#referencias">referencias</a>
+  </nav>
+
+  <main id="main-doc">
+    <section id="introducao" class="main-section">
+      <header>introducao</header>
+      <p>O PHP (um acrônimo recursivo para PHP: Hypertext Preprocessor) é uma linguagem de script open source de uso
+        geral, muito utilizada, e especialmente adequada para o desenvolvimento web e que pode ser embutida dentro do
+        HTML.</p>
+      <p>Em vez de muitos comandos para mostrar HTML (como acontece com C ou Perl), as páginas PHP contém HTML em código
+        mesclado que faz "alguma coisa" (neste caso, mostra "Olá, eu sou um script PHP!"). O código PHP é delimitado
+        pelas instruções de processamento (tags) de início e fim
+        <?php e ?> que permitem que você entre e saia do "modo PHP".
+
+      <p>O que distingue o PHP de algo como o JavaScript no lado do cliente é que o código é executado no servidor,
+        gerando o HTML que é então enviado para o navegador. O navegador recebe os resultados da execução desse script,
+        mas não sabe qual era o código fonte. Você pode inclusive configurar seu servidor web para processar todos os
+        seus arquivos HTML com o PHP, e então não há como os usuários dizerem o que você tem na sua manga.</p>
+
+      <p>A melhor coisa em usar o PHP é que ele é extremamente simples para um iniciante, mas oferece muitos recursos
+        avançados para um programador profissional. Não tenha medo de ler a longa lista de recursos do PHP. Pode entrar
+        com tudo, o mais rápido que puder, e começar a escrever scripts simples em poucas horas. </p>
+      <pre>
+    <code>
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        &lt;head&gt;
+        &lt;title&gt;Exemplo&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+
+        &lt;?php
+        echo "Olá, eu sou um script PHP!";
+        ?&gt;
+
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </code>
+</pre>
+      <li>Lista</li>
+    </section>
+    <section id="instalacao" class="main-section">
+      <header>instalacao</header>
+      <p>Para a primeira forma, e a mais comum, você precisa de três coisas: o próprio PHP, um servidor web e um cliente
+        (browser) web. Você provavelmente já tem um browser, e dependendo da configuração do seu sistema operacional,
+        você pode também ter um servidor web (Ex.: Apache no Linux e macOS; IIS no Windows). Você também pode alugar um
+        host em uma companhia qualquer. Dessa maneira, você não precisa configurar nada por conta própria, apenas
+        escrever os seus scripts PHP, enviar (upload) para o servidor que você alugou, e ver os resultados no seu
+        browser.</p>
+
+      <p>No caso de você instalar o servidor e o PHP por conta própria, você tem duas escolhas para o método de conexão
+        do PHP com o servidor. Para muitos servidores o PHP tem uma interface direta de módulo (também chamada de SAPI).
+        Entre esses servidores estão Apache, Microsoft Internet Information Server, Netscape e iPlanet. Se o PHP não
+        tiver suporte de módulo para o seu servidor web, você também pode usá-lo como processador CGI ou FastCGI. Isso
+        significa configurar seu servidor para usar o executável CGI do PHP para processar todas as requisições a
+        arquivos PHP no servidor. </p>
+
+      <p>Se você também estiver interessado em usar o PHP para criar scripts em linha de comandos (Ex.: criar scripts
+        que geram imagens enquanto estão offline, ou processar arquivos de texto dependendo de alguns argumentos que
+        você passar ao script), você pode precisar do executável de linha de comando. Para mais informações, leia a
+        seção sobre criando aplicações de linha de comando com o PHP. Nesse caso, você não precisa de servidor nem de um
+        browser. </p>
+
+      <code>Hello world! </code>
+      <li>Lista</li>
+    </section>
+    <section id="caracteristicas_do_php" class="main-section">
+      <header>caracteristicas do php</header>
+      <p>Pode-se utilizar a função header() para enviar uma mensagem de "Authentication Required" para o browser
+        cliente, causando o aparecimento de uma janela para a entrada de Nome de Usuário/Senha. Uma vez que o usuário
+        preencha um nome de usuário e uma senha, a URL contendo o script PHP será chamada mais uma vez com as variáveis
+        predefinidas PHP_AUTH_USER, PHP_AUTH_PW, e AUTH_TYPE para determinar o nome de usuário, senha e tipo da
+        autenticação, respectivamente. Estas variáveis predefinidas são encontradas nos arrays $_SERVER. Somente os
+        métodos de autenticação "Basic" e "Digest" (a partir do PHP 5.1.0) são suportados. Consulte a função header()
+        para mais informações. </p>
+
+      <p>Um exemplo de fragmento de script que forçaria a autenticação do cliente em uma página: </p>
+      <pre>
+       <code>
+         <?php
+        if (!isset($_SERVER['PHP_AUTH_USER'])) {
+            header('WWW-Authenticate: Basic realm="My Realm"');
+            header('HTTP/1.0 401 Unauthorized');
+            echo 'Texto enviado caso o usuário clique no botão Cancelar';
+            exit;
+        } else {
+            echo "<p>Olá, {$_SERVER['PHP_AUTH_USER']}.</p>";
+            echo "<p>Você digitou {$_SERVER['PHP_AUTH_PW']} como sua senha.</p>";
+        }
+        ?>
+       </code>
+     </pre>
+      <li>Lista</li>
+    </section>
+    <section id="seguranca" class="main-section">
+      <header>seguranca</header>
+      <p>PHP é uma linguagem poderosa e um interpretador, seja incluído em um servidor web como um módulo ou executado
+        separadamente como binário CGI, é possível acessar arquivos, executar comandos e abrir conexões de rede no
+        servidor. Essas propriedades fazem qualquer coisa executando em um servidor web inseguras por padrão. PHP é
+        desenhado especificamente para ser uma linguagem mais segura para escrever programas CGI que Perl ou C, e com a
+        escolha correta de opções de configuração em tempo compilação ou de execução, e práticas corretas de
+        programação, ela pode dar a combinação exata de liberdade e segurança que você precisa.</p>
+
+      <p>Como existem diferentes maneiras de utilizar o PHP, existem várias opções de configuração controlando seu
+        comportamento. Um grande leque de opções garante que você pode usar o PHP para vários propósitos, mas também
+        significa que existem combinações dessas opções e configurações do servidor que resultam em uma instalação
+        insegura. </p>
+
+      <p>A flexibilidade de configuração do PHP é comparável com a flexibilidade de código. PHP pode ser usado para
+        montar um servidor de aplicações completo, com todo o poder de um usuário shell, ou pode ser usado para inclusão
+        simples de arquivos no lado do servidor com pouco risco em um ambiente bem controlado. Como montar o ambiente, e
+        o quão seguro ele é, depende muito do desenvolvedor. </p>
+
+      <p>Esse capítulo começa com alguns conselhos genéricos de segurança, explica as diferentes combinações de opções
+        de configuração e as situações nas quais elas podem ser usadas com segurança e descreve diferentes considerações
+        quanto ao desenvolvimento para diferentes níveis de segurança. </p>
+      <code>Hello world! </code>
+      <li>Lista</li>
+    </section>
+    <section id="referencias" class="main-section">
+      <header>referencias</header>
+      <p>Referências no link: <a href="https://www.php.net/manual/pt_BR/" target="_blank">Manual PHP </a> </p>
+      <!-- 6. -->
+      <code>Hello world! </code>
+      <li>Lista</li>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://github.com/TiagoUniverse" target="_blank">Tiago César da Silva Lopes</a>, 2023.
+  </footer>
+
+</body>
+
+</html>

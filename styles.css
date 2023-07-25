@@ -1,0 +1,103 @@
+html {
+  scroll-behavior: smooth;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+
+/* NAVBAR */
+#navbar{
+  position: fixed;
+  /* background-color: blue; */
+  height: 1000px;
+  border-right: 1px solid black;
+}
+
+#navbar a{
+  display: block;
+  padding: 8px;
+  font-size: 22px;
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  color: black;
+}
+
+#navbar a:first-of-type{
+   border-top: 1px solid black;
+}
+
+#navbar header{
+  font-size: 32px;
+  margin-bottom: 15px;
+   padding-right: 3px;
+  
+}
+
+
+/* MAIN-DOC */
+#main-doc{
+  /* background-color: red; */
+  max-width: 1500px;
+  margin-left: 360px;
+}
+
+
+/* MAIN-SECTION */
+.main-section header{
+  font-size: 24px;
+  margin-top: 30px;
+}
+
+#intro header{
+  margin-top: 0;
+}
+
+.main-section li{
+  margin-left: 30px;
+}
+
+.main-section code{
+  background-color: rgb(231, 210, 165);
+  font-size: 16px;
+  padding: 15px;
+  display: block;
+  max-width: 1050px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+
+
+/* FOOTER */
+footer{
+  position:fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  padding: 5px;
+  color: white;
+  text-align: center;
+}
+
+footer a{
+  text-decoration: none;
+  color: white;
+}
+
+
+  @media screen and (max-width: 768px){
+      #navbar{
+      position: absolute;
+      top:0;
+      width: 100%;
+      border: none;
+      max-height: 300px;
+      /* background-color: red; */
+    }
+
+      #main-doc{
+        margin-top: 300px;
+        margin-left: 0px;
+        max-width: 500px;
+      }
+  }
